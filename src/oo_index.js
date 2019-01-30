@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const taskContainer = document.getElementById('list')
+  const taskContainer = document.getElementById('tasks')
   const taskForm = document.getElementById('create-task-form') 
 
   taskForm.addEventListener('submit', function(event) {
@@ -7,44 +7,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const userInputField = event.target.querySelector('#new-task-description') 
 
     const userInputString = userInputField.value
-    const newTask = document.createElement('ul')
+    const newTask = document.createElement('li')
     newTask.textContent = userInputString 
 
 // adding close button next to task item
     const button = document.createElement("BUTTON");
-    const txt = document.createTextNode(" \u00D7");
+    const txt = document.createTextNode("X");
     button.className = "close";
     button.appendChild(txt); 
+    button.addEventListener('click', function(event) {
+      const task = event.target.parentElement
+      taskContainer.removeChild(task)
+    })
 
     newTask.appendChild(button) 
 
     taskContainer.appendChild(newTask)
   })  
-
-  // close button deletes task 
-  // const close = document.getElementsByClassName("close");
-  // var j; 
-  
-  // for (j = 0; j < close.length; j++) {
-  //   close.addEventListener('click', function(event) {
-  //     const div = this.removeParentElement;
-  //   }
-  // } 
-
-
-
-  // const close = document.getElementsByClassName("close");
-  // var j; 
-
-  // for (j = 0; j < close.length; j++) {
-  //   close[j].onclick = function() {
-  //     const div = this.parentElement;
-  //     div.remove()
-  //   }
-  // } 
-
-
-  
 }) 
 
 
