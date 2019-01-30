@@ -1,30 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-    //grab all the necessary DOM elements
-  
-    //form and relevant input fields
-    const newTaskForm = document.getElementById("create-task-form");
-    const newTaskDescription = document.getElementById("new-task-description");
-    const newTaskPriority = document.getElementById("new-task-priority");
-  
-    //ul where new tasks will live on the DOM
-    const newTaskUl = document.getElementById("tasks");
-  
-    //attach event listeners
-    newTaskForm.addEventListener("submit", createNewTask);
-  });
-  
-  const createNewTask = event => {
-    event.preventDefault();
-    //stop form from trying to submit
-    const newTaskDescription = document.getElementById("new-task-description");
-    const newTask = document.createElement("li");
-    newTask.innerText = newTaskDescription.value;
-  
-    appendNewTask(newTask);
-    event.target.reset();
-  };
-  
-  const appendNewTask = task => {
-    document.getElementById("tasks").appendChild(task);
-  };
-  
+/ Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
