@@ -1,31 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // initialize taskList class
-  const taskList = new TaskList();
-  //grab all the necessary DOM elements
+document.addEventListener('DOMContentLoaded', function() {
+  const taskContainer = document.getElementById('list')
+  const taskForm = document.getElementById('create-task-form')
 
-  //form and relevant input fields
-  const newTaskForm = document.getElementById("create-task-form");
-  const newTaskDescription = document.getElementById("new-task-description");
-  const newTaskPriority = document.getElementById("new-task-priority");
+  taskForm.addEventListener('submit', function(event) {
+    event.preventDefault() //stop form from POSTING
+    const userInputField = event.target.querySelector('#new-task-description') 
 
-  //ul where new tasks will live on the DOM
-  const taskUl = document.getElementById("tasks");
+    //OR document.querySelector('#new-comment')
+    const userInputString = userInputField.value
+    const newTask = document.createElement('ul')
+    newTask.textContent = userInputString
 
-  const renderApp = () => (taskUl.innerHTML = taskList.renderTasks());
-  //attach event listeners
-
-  newTaskForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    taskList.createNewTask(newTaskDescription.value);
-    // reset form
-    e.target.reset();
-    renderApp();
-  });
-
-  taskUl.addEventListener("click", (e) => {
-    if (e.target.nodeName === "BUTTON") {
-      taskList.deleteTask(e.target.dataset.description);
-      renderApp();
-    }
-  });
-});
+    taskContainer.appendChild(newTask)
+  })
+})
