@@ -11,28 +11,40 @@ document.addEventListener('DOMContentLoaded', function() {
     newTask.textContent = userInputString 
 
 // adding close button next to task item
-    const span = document.createElement("SPAN");
+    const button = document.createElement("BUTTON");
     const txt = document.createTextNode(" \u00D7");
-    span.className = "close";
-    span.appendChild(txt); 
+    button.className = "close";
+    button.appendChild(txt); 
 
-    newTask.appendChild(span) 
+    newTask.appendChild(button) 
 
     taskContainer.appendChild(newTask)
   })  
 
-// close button deletes task
+  // close button deletes task 
+  // const close = document.getElementsByClassName("close");
+  // var j; 
+  
+  // for (j = 0; j < close.length; j++) {
+  //   close.addEventListener('click', function(event) {
+  //     const div = this.removeParentElement;
+  //   }
+  // } 
+
+
+
   // const close = document.getElementsByClassName("close");
   // var j; 
 
   // for (j = 0; j < close.length; j++) {
   //   close[j].onclick = function() {
   //     const div = this.parentElement;
-  //     div.style.display = "none";
+  //     div.remove()
   //   }
-  // }
+  // } 
 
 
+  
 }) 
 
 
