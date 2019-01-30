@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const orderTasks = (event) => {
-    // const tasks = tasksContainer.children
     const priorities = ['high', 'medium', 'low']
 
     priorities.forEach((priority) => {
